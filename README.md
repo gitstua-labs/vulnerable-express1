@@ -54,6 +54,9 @@ The application provides the following API endpoints:
 - `PUT /users/:id`: Update a user by id.
 - `DELETE /users/:id`: Delete a user by id.
 
+## SQL Injection demo
+Send a request e.g. `http://localhost:3000/api/users/1;DELETE%20FROM%20TABLE1%20WHERE%201=1;`
+
 ## Built With
 
 - [Express.js](https://expressjs.com/) - The web framework used.

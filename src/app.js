@@ -21,6 +21,8 @@ const db = require('./database');
 
 db.serialize(() => {
   db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+  db.run('CREATE TABLE IF NOT EXISTS table1 (id INTEGER PRIMARY KEY, name TEXT)');
+
 });
 
 module.exports = app;

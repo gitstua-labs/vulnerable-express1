@@ -15,17 +15,17 @@ router.get('/', (req, res) => {
 
 // Get a user by id
 router.get('/:id', (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
 
-  const sqlQuery = "select * from tablename where userid = " + id;
-  console.warn(sqlQuery);
+  const sqlQuery = "select * from users where id = " + id;
+    console.warn(sqlQuery);
 
   db.all(sqlQuery, [], (err, rows) => {
     if (err) {
       throw err;
     }
     console.warn(rows);
-    res.json(rows);
+    //res.json(rows);
   },
   );
 
