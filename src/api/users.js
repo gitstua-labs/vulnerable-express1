@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('../database');
 const router = express.Router();
 
 // Mock users
@@ -18,6 +19,15 @@ router.get('/:id', (req, res) => {
 
   const sqlQuery = "select * from tablename where userid = " + id;
   console.warn(sqlQuery);
+
+  db.all(sqlQuery, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    console.warn(rows);
+    res.json(rows);
+  },
+  );
 
   const user = users.find(user => user.id === id);
 

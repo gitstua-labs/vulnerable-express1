@@ -17,4 +17,10 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+const db = require('./database');
+
+db.serialize(() => {
+  db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+});
+
 module.exports = app;
