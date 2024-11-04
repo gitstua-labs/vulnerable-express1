@@ -17,10 +17,10 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id;
 
-  const sqlQuery = "select * from users where id = " + id;
+  const sqlQuery = "select * from users where id = ?";
     console.warn(sqlQuery);
 
-  db.all(sqlQuery, [], (err, rows) => {
+  db.all(sqlQuery, [id], (err, rows) => {
     if (err) {
       throw err;
     }
